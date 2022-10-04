@@ -219,6 +219,17 @@ footer{
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 30px;
     }
+    .table thead th {
+        vertical-align: middle;
+        font-size: 13px;
+        text-align: center;
+    }
+    .table td{
+        text-align: center
+    }
+    .table td button{
+        margin: 0 !important;
+    }
 }
 
 @media screen and (max-width:576px) {
@@ -239,5 +250,8 @@ footer{
         width: 70%;
         text-align: center;
         display: block;
+    }
+    .table td button{
+        padding: 3px;
     }
 }
