@@ -23,8 +23,14 @@ function showTable(arrayItem) {
             </td>
             <td>${item.desc}</td>
             <td style="text-align: center;">
-                <button onclick="getItemDetail('${item.id}')" class="btn btn-info" data-toggle="modal" data-target="#myModal">Edit</button>
-                <button onclick="deleteItem('${item.id}')" class="btn btn-danger">Delete</button>
+                <button onclick="getItemDetail('${item.id}')" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+                    Edit
+                    <i class="fa-regular fa-pen-to-square"></i>
+                </button>
+                <button onclick="deleteItem('${item.id}')" class="btn btn-danger">
+                    Delete
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </td>
         </tr>
     `
@@ -64,8 +70,8 @@ async function addItem() {
             },
             body: JSON.stringify(item),
         });
-
         let data = await response.json();
+        console.log(data);
         document.querySelector("#myModal .close").click();
         getItemList();
         
@@ -121,3 +127,23 @@ function updateItem(id) {
         console.log(error);
     });
 }
+
+function searchItemByName() {
+    itemService.getItemList().then((result) => {
+        let arrayPhone = result.data;
+        let arrraySearch = [];
+        
+        let keyName = document.getElementById("txtSearch").value;
+        arrayPhone.map((item) => {
+            let indexSearch = item.name.toLowerCase().indexOf(keyName.toLowerCase());
+            if (indexSearch != -1) {
+                arrraySearch.push(item)
+            }
+        })
+        showTable(arrraySearch)
+    }).catch((error) => {
+        console.log(error)
+    });
+}
+document.getElementById("btnSearch").onclick = searchItemByName;
+document.getElementById("txtSearch").onkeyup = searchItemByName;

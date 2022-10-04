@@ -14,6 +14,7 @@
     background: #801ac4;
 }
 .header-nav .nav-icon{
+    display: flex;
     flex-direction: column;
     text-align: center;
     color: #fff;
@@ -63,6 +64,10 @@
 .input-group-text{
     background-color: green;
 }
+.modal-body label{
+    font-weight: 500;
+    color: green;
+}
 
 /* footer */
 footer{
@@ -95,4 +100,22 @@ footer{
 }
 .footer-content a:hover{
     background-color: #e62b4a;
+}
+
+@media screen and (max-width: 992px) {
+    .navbar-light .navbar-toggler {
+        background-color: snow;
+    }
+    .table button{
+        margin: 7px 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .footer-content{
+        width: 70%;
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
 }

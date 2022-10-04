@@ -1,7 +1,7 @@
 function PhoneAdminService() {
     this.getItemList = function() {
         return axios({
-            method: 'get',
+            method: 'GET',
             url: 'https://62e7707993938a545bd19492.mockapi.io/PhoneProducts',
         });
     };
@@ -16,14 +16,14 @@ function PhoneAdminService() {
 
     this.deleteItem = function(id) {
         return axios({
-            method: 'delete',
+            method: 'DELETE',
             url: `https://62e7707993938a545bd19492.mockapi.io/PhoneProducts/${id}`,
         });
     };
 
     this.getItemDetail = function(id) {
         return axios({
-            method: 'get',
+            method: 'GET',
             url: `https://62e7707993938a545bd19492.mockapi.io/PhoneProducts/${id}`,
         });   
     };
@@ -34,5 +34,6 @@ function PhoneAdminService() {
             url: `https://62e7707993938a545bd19492.mockapi.io/PhoneProducts/${id}`,
             data: item
         });
-    }
+    };
+
 }

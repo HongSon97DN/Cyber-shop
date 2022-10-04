@@ -34,23 +34,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item px-3">
-                        <div class="d-flex nav-icon">
+                        <a class="nav-link text-white nav-icon" href="#">
                             <i class="fa-solid fa-house"></i>
-                            <a class="nav-link text-white" href="#">Home</a>
-                        </div>
+                            Home
+                        </a>
                     </li>
                     <li class="nav-item px-3">
-                        <div class="d-flex nav-icon">
+                        <a class="nav-link text-white nav-icon" href="../views/admin.html">
                             <i class="fa-solid fa-users-gear"></i>
-                            <a class="nav-link text-white" href="../views/admin.html">Admin</a>
-                        </div>
+                            Admin
+                        </a>
                     </li>
                 </ul>
-                <div class="btn-icon d-flex">
-                    <button data-toggle="modal" data-target="#modelId" class="gioHang">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                    <span id="cart-count">0</span>
+                <div class="btn-icon">
+                        <button data-toggle="modal" data-target="#modelId" class="gioHang">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                        <span id="cart-count">0</span>
                 </div>
             </div>
         </nav>
@@ -65,7 +65,6 @@
                 <option value="samsung">Samsung</option>
                 <option value="iphone">Iphone</option>
             </select>
-            <p id="demo"></p>
         </form>
         <div id="product-list" class="row pt-5">
             
