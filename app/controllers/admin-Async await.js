@@ -1,4 +1,6 @@
 let itemService = new PhoneAdminService();
+let validation = new Validation();
+
 
 function getItemList() {
     itemService.getItemList().then((result) => {
@@ -58,25 +60,44 @@ async function addItem() {
     let img = document.getElementById("HinhSP").value;
     let desc = document.getElementById("moTaSP").value;
     let type = document.getElementById("type").value;
-
-    let item = new PhoneAdmin(name,price,screen,backCamera,frontCamera,img,desc,type);
     
-    try {
-        // xử lý thành công
-        let response = await fetch('https://62e7707993938a545bd19492.mockapi.io/PhoneProducts',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(item),
-        });
-        let data = await response.json();
-        console.log(data);
-        document.querySelector("#myModal .close").click();
-        getItemList();
-        
-    } catch (error) {
-        console.log(error);
+    let isValid = true;
+    isValid &= validation.checkEmpty(name,"tbTen","Tên sản phẩm không được để trống!");
+
+    isValid &= validation.checkEmpty(price,"tbGia","Giá sản phẩm không được để trống!") && validation.checkNumber(price,"tbGia","Giá sản phẩm chưa đúng định dạng!");
+
+    isValid &= validation.checkEmpty(screen,"tbHinh","Hình ảnh sản phẩm không được để trống!");
+
+    isValid &= validation.checkEmpty(backCamera,"tbCamSau","Cam sau sản phẩm không được để trống!");
+    
+    isValid &= validation.checkEmpty(frontCamera,"tbCamTruoc","Cam trước sản phẩm không được để trống!");
+
+    isValid &= validation.checkEmpty(img,"tbManHinh","Hình ảnh sản phẩm không được để trống!");
+    
+    isValid &= validation.checkEmpty(desc,"tbMoTa","Mô tả sản phẩm không được để trống!");
+
+    isValid &= validation.checkEmpty(type,"tbLoai","Loại sản phẩm không được để trống!");
+
+    if (isValid) {
+        let item = new PhoneAdmin(name,price,screen,backCamera,frontCamera,img,desc,type);
+
+        try {
+            // xử lý thành công
+            let response = await fetch('https://62e7707993938a545bd19492.mockapi.io/PhoneProducts',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(item),
+            });
+            let data = await response.json();
+            console.log(data);
+            document.querySelector("#myModal .close").click();
+            getItemList();
+            
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
@@ -118,14 +139,33 @@ function updateItem(id) {
     let desc = document.getElementById("moTaSP").value;
     let type = document.getElementById("type").value;
 
-    let itemUpdate = new PhoneAdmin(name,price,screen,backCamera,frontCamera,img,desc,type)
+    let isValid = true;
+    isValid &= validation.checkEmpty(name,"tbTen","Tên sản phẩm không được để trống!");
 
-    itemService.updateItem(id,itemUpdate).then((result) => {
-        document.querySelector("#myModal .close").click();
-        getItemList();
-    }).catch((error) => {
-        console.log(error);
-    });
+    isValid &= validation.checkEmpty(price,"tbGia","Giá sản phẩm không được để trống!") && validation.checkNumber(price,"tbGia","Giá sản phẩm chưa đúng định dạng!");
+
+    isValid &= validation.checkEmpty(screen,"tbHinh","Hình ảnh sản phẩm không được để trống!");
+
+    isValid &= validation.checkEmpty(backCamera,"tbCamSau","Cam sau sản phẩm không được để trống!");
+    
+    isValid &= validation.checkEmpty(frontCamera,"tbCamTruoc","Cam trước sản phẩm không được để trống!");
+
+    isValid &= validation.checkEmpty(img,"tbManHinh","Hình ảnh sản phẩm không được để trống!");
+    
+    isValid &= validation.checkEmpty(desc,"tbMoTa","Mô tả sản phẩm không được để trống!");
+
+    isValid &= validation.checkEmpty(type,"tbLoai","Loại sản phẩm không được để trống!");
+    if (isValid) {
+        let itemUpdate = new PhoneAdmin(name,price,screen,backCamera,frontCamera,img,desc,type)
+
+        itemService.updateItem(id,itemUpdate).then((result) => {
+            document.querySelector("#myModal .close").click();
+            getItemList();
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
+   
 }
 
 function searchItemByName() {

@@ -68,6 +68,9 @@
     font-weight: 500;
     color: green;
 }
+.modal-body .form-group span{
+    color: #e62b4a;
+}
 
 /* footer */
 footer{
