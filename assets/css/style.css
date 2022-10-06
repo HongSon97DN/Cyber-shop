@@ -100,6 +100,7 @@
 }
 .col.card-item button:hover{
     border: #801ac4 1px dashed;
+    color: #fff;
 }
 .phone-type{
     background-color: rgb(128, 114, 114);

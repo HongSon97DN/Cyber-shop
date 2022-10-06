@@ -30,7 +30,7 @@ function showPhoneList(productList) {
                             ${phone.backCamera}
                         </p>
                     </div>
-                    <button onclick="addProductCart(id)" id="${phone.id}" class="add-to-cart text-dark">Add to cart</button>
+                    <button onclick="addProductCart(id)" id="${phone.id}" class="add-to-cart">Add to cart</button>
                 </div>
                 <div class="card-top text-center">
                     <img class="img-fluid"
@@ -107,6 +107,7 @@ function addProductCart(id) {
         showProductCart(arrayPhoneCart);
         totalQuantity();
         totalMoneyCart();
+        return arrayPhoneCart;
     }).catch((error) => {
         console.log(error);
     });
@@ -192,8 +193,20 @@ function totalMoneyCart() {
 }
 
 function payment() { 
-    arrayPhoneCart = [];
-    showProductCart(arrayPhoneCart);
-    totalMoneyCart(0);
-    totalQuantity(0);
+    if (arrayPhoneCart.length > 0) {
+        arrayPhoneCart = [];
+        showProductCart(arrayPhoneCart);
+        totalMoneyCart(0);
+        totalQuantity(0);
+        
+        document.getElementById("modalCartPayment").innerHTML = `
+            <h2 style="color: green">Thank you for payment</h2>
+            <i style="color: green; font-size: 50px;" class="fa-regular fa-circle-check pb-3"></i>
+        `
+    } else if(arrayPhoneCart.length == "") {
+        document.getElementById("modalCartPayment").innerHTML = `
+            <h2 style="color: red">Sorry your cart is empty</h2>
+            <i style="color: red; font-size: 50px;" class="fa-solid fa-circle-exclamation pb-3"></i>
+        `
+    }  
 }
