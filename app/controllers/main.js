@@ -173,6 +173,13 @@ function removeProductCart(id) {
     })
     if (indexDelete > -1) {
         arrayPhoneCart.splice(indexDelete, 1);
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Delete Completed',
+            showConfirmButton: false,
+            timer: 1000
+        })
     }
     showProductCart(arrayPhoneCart);
 }
@@ -198,15 +205,20 @@ function payment() {
         showProductCart(arrayPhoneCart);
         totalMoneyCart(0);
         totalQuantity(0);
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Thanks for payment',
+            showConfirmButton: false,
+            timer: 1500
+        })
         
-        document.getElementById("modalCartPayment").innerHTML = `
-            <h2 style="color: green">Thank you for payment</h2>
-            <i style="color: green; font-size: 50px;" class="fa-regular fa-circle-check pb-3"></i>
-        `
     } else if(arrayPhoneCart.length == "") {
-        document.getElementById("modalCartPayment").innerHTML = `
-            <h2 style="color: red">Sorry your cart is empty</h2>
-            <i style="color: red; font-size: 50px;" class="fa-solid fa-circle-exclamation pb-3"></i>
-        `
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Sorry, Your cart is empty!',
+          })
+       
     }  
 }

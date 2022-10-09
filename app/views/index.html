@@ -73,9 +73,9 @@
     <section class="modalCart">       
         <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Giỏ hàng của bạn</h5>
+                <div class="modal-content scroll-bar">
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title w-100">Giỏ hàng của bạn</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -95,14 +95,16 @@
                             <tbody id="phone-cart">
                                 
                             </tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td style="font-weight: 500;">Tổng tiền:</td>
-                                <td id="total-money"></td>
-                                <td></td>
-                            </tr>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="font-weight: 500;">Tổng tiền:</td>
+                                    <td id="total-money"></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
                         </table>                      
                     </div>
                     <div class="modal-footer">
@@ -110,16 +112,6 @@
                             Thanh toán
                             <i class="fa-solid fa-wallet"></i>
                         </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="modalPayment">     
-        <div class="modal fade" id="modelPayment" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
-                <div style="margin-top: 50%;" class="modal-content">
-                    <div id="modalCartPayment" class="modal-body text-center">
                         
                     </div>
                 </div>
@@ -155,6 +147,8 @@
         crossorigin="anonymous"></script>
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="../services/PhoneService.js"></script>
     <script src="../models/Phone.js"></script>

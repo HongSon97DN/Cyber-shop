@@ -103,7 +103,14 @@ async function addItem() {
 
 function deleteItem(id) {
     itemService.deleteItem(id).then((result) => {
-        getItemList();
+          Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Delete Completed',
+            showConfirmButton: false,
+            timer: 2000
+          })
+          getItemList();
     }).catch((error) => {
         console.log(error);
     });
@@ -160,6 +167,13 @@ function updateItem(id) {
 
         itemService.updateItem(id,itemUpdate).then((result) => {
             document.querySelector("#myModal .close").click();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Update Success!',
+                showConfirmButton: false,
+                timer: 2000
+              })
             getItemList();
         }).catch((error) => {
             console.log(error);

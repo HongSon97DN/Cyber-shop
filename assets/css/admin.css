@@ -60,6 +60,7 @@
 }
 .table th{
     text-align: center;
+    background-color: darkgray;
 }
 .input-group-text{
     background-color: green;

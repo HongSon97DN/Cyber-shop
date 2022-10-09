@@ -145,8 +145,23 @@
 }
 
 /* modal */
+.modal-header{
+    background-color: #801ac4;
+}
+.modal-header h5{
+    color: #fff;
+    text-transform: uppercase;
+}
+.modal-header .close{
+    padding: 10px;
+    font-size: 35px;
+    color: #000;
+}
 .modal-body{
     padding: 1rem 1rem 0 1rem;
+}
+.modal-body thead tr{
+    background-color: grey;
 }
 .table{
     margin-bottom: 0;
@@ -154,6 +169,21 @@
 .table td{
     vertical-align: middle;
 }
+.scroll-bar{
+    margin-top: 10%;
+    overflow-y: scroll;
+    height: 80vh;
+}
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: lightgrey;
+}
+  
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: grey;
+}
+  
 
 /* footer */
 footer{
@@ -253,6 +283,6 @@ footer{
         display: block;
     }
     .table td button{
-        padding: 3px;
+        padding: 2px;
     }
 }
